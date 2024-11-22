@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Checkout dengan Kunci Random dan Salin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .payment-select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .payment-details {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Form Checkout</h2>
+        <form>
+            <!-- Informasi Pembeli -->
+            <div class="form-group">
+                <label for="name">Nama Pembeli</label>
+                <input type="text" placeholder="masukan nama penerima" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">No Telponn</label>
+                <input type="tel" placeholder="masukan no telpon aktif" id="email" name="email" required>
+            </div>
+            <!-- Alamat Pengiriman -->
+            <div class="form-group">
+                <label for="address">Alamat Pengiriman</label>
+                <textarea id="address" name="address" rows="4" required placeholder="masukan alamat pengiriman"></textarea>
+            </div>
+
+            <!-- Metode Pembayaran -->
+            <div class="payment-option">
+                <label for="payment-method">Pilih Metode Pembayaran:</label>
+                <select id="payment-method" name="payment-method" class="payment-select">
+                    <option value="bank-transfer">Transfer Bank</option>
+                    <option value="dana">Dana</option>
+                    <option value="gopay">Gopay</option>
+                    <option value="cod">Cash on Delivery (COD)</option>
+                </select>
+            </div>
+
+            <!-- Pilihan untuk Transfer Bank -->
+            <div id="bank-option" class="payment-details">
+                <label for="bank-name">Pilih Bank:</label>
+                <select id="bank-name" name="bank-name" class="payment-select">
+                    <option value="bca">BCA 2819171917</option>
+                    <option value="mandiri">Mandiri 2789735628152</option>
+                    <option value="bri">BRI 0021574739</option>
+                    <option value="bni">BNI 0092527282</option>
+                </select>
+            </div>
+
+            <!-- Pilihan untuk Dana -->
+            <div id="dana-option" class="payment-details">
+                <label for="dana-number">Pilih Nomor Dana:</label>
+                <select id="dana-number" name="dana-number" class="payment-select">
+                    <option value="081234567890">0819237863524 (Admin 1)</option>
+                    <option value="082345678901">089523451678 (Admin 2)</option>
+                    <option value="083456789012">081547389876 (Admin 3)</option>
+                </select>
+            </div>
+
+            <!-- Pilihan untuk Gopay -->
+            <div id="gopay-option" class="payment-details">
+                <label for="gopay-id">Pilih ID Gopay:</label>
+                <select id="gopay-id" name="gopay-id" class="payment-select">
+                    <option value="gopay-12345">0819237863524 (Admin 1)</option>
+                    <option value="gopay-67890">089523451678 (Admin 2)</option>
+                    <option value="gopay-54321">081547389876 (Admin 3)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Kode Otp</label>
+                <input type="text" placeholder="masukan kode otp" id="email" name="email" required>
+            </div>
+
+            <a href="pesan atk.html" class="button">Konfirmasi Pembayaran</a>
+            <!-- <button type="submit" class="button">Konfirmasi Pembayaran</button> -->
+        </form>
+    </div>
+
+    <script>
+        // Menampilkan pilihan metode pembayaran yang relevan berdasarkan pilihan user
+        document.getElementById('payment-method').addEventListener('change', function () {
+            var selectedMethod = this.value;
+            // Menyembunyikan semua pilihan pembayaran terlebih dahulu
+            var paymentDetails = document.querySelectorAll('.payment-details');
+            paymentDetails.forEach(function (detail) {
+                detail.style.display = 'none';
+            });
+            // Menampilkan pilihan yang sesuai dengan metode pembayaran yang dipilih
+            if (selectedMethod === 'bank-transfer') {
+                document.getElementById('bank-option').style.display = 'block';
+            } else if (selectedMethod === 'dana') {
+                document.getElementById('dana-option').style.display = 'block';
+            } else if (selectedMethod === 'gopay') {
+                document.getElementById('gopay-option').style.display = 'block';
+            } else if (selectedMethod === 'cod') {
+                document.getElementById('cod-option').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>

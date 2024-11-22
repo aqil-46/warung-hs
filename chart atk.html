@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        /* Mengatur tampilan ikon panah agar tanpa background */
+        #chart {
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .fa-arrow-left {
+            color: black; /* Warna ikon panah */
+            background: none;
+        }
+        
+        /* CSS untuk tombol */
+        .button, #clear-cart {
+            width: 100%;
+            height: 50px; /* Sesuaikan tinggi */
+            font-size: 16px;
+            padding: 10px;
+            background-color: #007bff; /* Sesuaikan dengan warna yang diinginkan */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .button:hover, #clear-cart:hover {
+            background-color: #0056b3; /* Warna hover */
+        }
+    </style>
+    <link rel="stylesheet" href="css/chart.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/querry.css">
+    <link rel="stylesheet" href="css/otp.css">
+    <link rel="shortcut icon" href="img/warung-removebg-preview (1).png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Keranjang</h1>
+        <div class="products">
+            <div class="product" data-name="Tipe X" data-price="5000">
+                <h3>Tipe X</h3>
+                <p>Harga: Rp5.000</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            <div class="product" data-name="Spidol" data-price="2000">
+                <h3>Spidol</h3>
+                <p>Harga: Rp2.000</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            <div class="product" data-name="Pensil Warna" data-price="8000">
+                <h3>Pensil Warna</h3>
+                <p>Harga: Rp8.500</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            <div class="product" data-name="Buku" data-price="3000">
+                <h3>Buku</h3>
+                <p>Harga: Rp5.000</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            <div class="product" data-name="Pensil" data-price="1500">
+                <h3>Pensil</h3>
+                <p>Harga: Rp1.500</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            
+            <div class="product" data-name="Pulpen" data-price="2000">
+                <h3>Pulpen</h3>
+                <p>Harga: Rp2.000</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>              
+            <div class="product" data-name="Penghapus" data-price="1500">
+                <h3>Penghapus</h3>
+                <p>Harga: Rp2.000</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+            <div class="product" data-name="Penggaris" data-price="2000">
+                <h3>Penggaris</h3>
+                <p>Harga: Rp3.500</p>
+                <button class="add-to-cart">Tambah ke Keranjang</button>
+            </div>
+        </div>
+        
+        <!-- Keranjang Belanja -->
+        <div class="cart">
+            <h2>Keranjang Belanja</h2>
+            <ul id="cart-items">
+                <!-- Item akan ditambahkan di sini -->
+            </ul>
+            <p>Total: Rp <span id="total-price">0</span></p>
+            <button id="clear-cart">Kosongkan Keranjang</button>
+            <button onclick="window.location.href='form pembayaran.html'" class="button">Pesan</button>
+        </div>
+        
+        <!-- Display Kunci Random -->
+        <div class="form-group">
+            <p class="key">Kode Otp Pesanan</p>
+            <div class="key-display" id="keyDisplay"></div>
+            <!-- Tombol Salin Kunci -->
+            <button type="button" class="copy-btn" onclick="copyKey()">Salin Kunci</button>
+        </div>
+
+        <script src="js/chart.js"></script>
+        <script src="js/key.js"></script>
+        <button id="chart">
+            <a href="atk.html"><i class="fas fa-arrow-left fa-2x"></i></a>
+        </button>
+    </div>
+</body>
+</html>

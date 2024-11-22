@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Telah Dikirim</title>
+    <style>
+        /* Mengatur gaya halaman */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Pesan "Pesanan Telah Dikirim!" */
+        .message {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        /* Animasi pesan yang muncul */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Pesan "Terima Kasih" */
+        .thank-you {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 4s;
+        }
+
+        /* Pesan "Pesan Lagi" */
+        .order-again {
+            font-size: 18px;
+            font-weight: normal;
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 6s;
+        }
+
+        /* Hover effect pada tombol pesan lagi */
+        .order-again:hover {
+            text-decoration: underline;
+        }
+
+        /* Container untuk truk yang bergerak */
+        .truck-container {
+            position: relative;
+            width: 100%;
+            height: 200px; /* Lebar container agar truk dan jalan cukup muat */
+            overflow: hidden;
+        }
+
+        /* Gambar jalan (aspal) */
+        .road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px; /* Tinggi jalan */
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt.png');  /* Tekstur jalan */
+            background-size: cover;
+            background-repeat: repeat-x;
+        }
+
+        /* Gambar truk yang akan bergerak */
+        .truck {
+            position: absolute;
+            bottom: 60px;  /* Truk berada di atas jalan */
+            left: -200px;  /* Truk mulai di luar layar sebelah kiri */
+            width: 200px;  /* Lebar truk */
+            height: 100px; /* Tinggi truk */
+            background-image: url('https://img.icons8.com/ios/452/truck.png');  /* Ganti dengan URL gambar truk Anda */
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: moveTruck 5s linear infinite;
+        }
+
+        /* Animasi truk yang bergerak dari kiri ke kanan */
+        @keyframes moveTruck {
+            0% {
+                left: -200px; /* Truk mulai dari luar layar kiri */
+            }
+            50% {
+                left: 50%; /* Truk menuju tengah layar */
+                transform: translateX(-50%);
+            }
+            100% {
+                left: 100%; /* Truk keluar dari layar sebelah kanan */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Pesan "Pesanan Telah Dikirim!" -->
+    <div class="message">
+        Pesanan Telah Dikirim!
+    </div>
+
+    <!-- Container untuk truk dan jalan -->
+    <div class="truck-container">
+        <!-- Gambar jalan -->
+        <div class="road"></div>
+
+        <!-- Gambar truk -->
+        <div class="truck"></div>
+    </div>
+
+    <!-- Pesan Ucapan Terima Kasih -->
+    <div class="thank-you">
+        Terima Kasih telah berbelanja dengan kami!
+    </div>
+
+    <!-- Tautan untuk pesan lagi -->
+    <div class="order-again" onclick="window.location.reload();">
+        Klik di sini untuk pesan lagi
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kode otp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .key-display {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Kode Otp</h2>
+        <button class="btn" onclick="generateKey()">Generate Kunci</button>
+        
+        <!-- Tempat menampilkan kunci -->
+        <div class="key-display" id="keyDisplay"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk menghasilkan kunci acak
+        function generateKey() {
+            const keyLength = 5; // Panjang kunci (misalnya 16 karakter)
+            let key = "";
+            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()"; // Karakter yang dapat digunakan
+            
+            for (let i = 0; i < keyLength; i++) {
+                key += characters.charAt(Math.floor(Math.random() * characters.length)); // Pilih karakter acak
+            }
+            
+            // Tampilkan kunci pada elemen dengan id "keyDisplay"
+            document.getElementById("keyDisplay").textContent = key;
+        }
+    </script>
+
+</body>
+</html>

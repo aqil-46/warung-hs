@@ -1,0 +1,60 @@
+/* Gaya default (desktop) */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: auto; /* Pastikan gambar tetap proporsional */
+    max-width: 800px; /* Batas ukuran gambar */
+}
+
+/* Tablet (min-width: 768px dan max-width: 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 14px;
+    }
+
+    img {
+        max-width: 600px; /* Ukuran gambar lebih kecil untuk tablet */
+    }
+}
+
+/* Smartphone (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    img {
+        max-width: 100%; /* Gambar memenuhi lebar layar */
+    }
+}
+
+/* Layar kecil (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    img {
+        max-width: 90%; /* Beri margin agar tidak terlalu mepet */
+    }
+}
+
+/* Layar besar (min-width: 1025px) */
+@media screen and (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+
+    img {
+        max-width: 1000px; /* Gambar lebih besar untuk layar besar */
+    }
+}
