@@ -20,13 +20,12 @@
           border-bottom: 2px solid;
           padding-bottom: 0px;
         }
-        .h {
+        .log {
          position: absolute;
           top: 8px;
-          left: 1290px;
+          left: 1190px;
           color: white;
           text-decoration: none;
-          border-bottom: 2px solid;
           padding-bottom: 0px;
         }
         
@@ -49,7 +48,11 @@
                       <a href="about.html"class="hover:undeline">ABOUT</a>
                   </div>
               </nav>
-      </div>    
+              <div class="log">
+              <a href="index.html"onclick= "showAlert()">LOG OUT</a>
+                </div>
+
+            </div>    
     
   <div class="container mx-auto mt-10 px-4">
     <h1 class="text-4xl font-bold text-red-700">WARUNG</h1>
@@ -75,7 +78,11 @@
       spinner: "spinner7",
     });
   });
-</script>
+        // Fungsi untuk menampilkan alert
+        function showAlert() {
+            alert("Apakah anda yakin ingin log out?");
+        }
+    </script>
 
 </body>
 </html>
